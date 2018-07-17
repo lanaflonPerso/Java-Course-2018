@@ -26,7 +26,7 @@ public class PizzaApp extends JFrame  {
 		setLayouts();
 		customizeElements();
 		addElementsToInterface();
-		
+		addBorders();
 	}
 	private void setLayouts(){
 		setLayout(new FlowLayout());
@@ -134,7 +134,7 @@ public class PizzaApp extends JFrame  {
 			}
 		
 		});
-		addBorders();
+
 	}
 	
 	private void addBorders(){
