@@ -28,11 +28,38 @@ public class PizzaApp extends JFrame  {
 		addElementsToInterface();
 		addBorders();
 	}
+	
 	private void setLayouts(){
 		setLayout(new FlowLayout());
 		toppingPanel.setLayout(new BoxLayout(toppingPanel,BoxLayout.X_AXIS));
 		leftPanel.setLayout(new BoxLayout(leftPanel,BoxLayout.Y_AXIS));
 		rightPanel.setLayout(new BoxLayout(rightPanel,BoxLayout.Y_AXIS));
+	}
+	private void addElementsToInterface(){
+		
+		leftPanel.add(new JLabel("Pizza type:"));
+		leftPanel.add(pizzaType);
+		leftPanel.add(new JLabel("Pizza Size:"));
+		leftPanel.add(pizzaSize);
+		leftPanel.add(new JLabel("Extra toppings:"));
+		toppingPanel.add(addCheese);
+		toppingPanel.add(addOlives);
+		toppingPanel.add(addPeppers);
+		toppingPanel.add(addPepperoni);
+		leftPanel.add(toppingPanel);
+		leftPanel.add(new JLabel("Comment:"));
+		leftPanel.add(comment);
+		leftPanel.add(submitOrder);
+		/* Bounce fix
+		JPanel panel = new JPanel();
+		panel.add(new JLabel("Order Summary:"));
+		rightPanel.add(panel);
+		*/
+		rightPanel.add(new JLabel("Order Summary:"));
+		rightPanel.add(orderSummary);
+		add(leftPanel);
+		add(rightPanel);
+		
 	}
 	private void customizeElements(){
 		customizePizzaType();
@@ -160,32 +187,7 @@ public class PizzaApp extends JFrame  {
 		pizzaType.addItem("Quattro Formaggi");
 		pizzaType.addActionListener(orderListener);
 	}
-	private void addElementsToInterface(){
-		
-		leftPanel.add(new JLabel("Pizza type:"));
-		leftPanel.add(pizzaType);
-		leftPanel.add(new JLabel("Pizza Size:"));
-		leftPanel.add(pizzaSize);
-		leftPanel.add(new JLabel("Extra toppings:"));
-		toppingPanel.add(addCheese);
-		toppingPanel.add(addOlives);
-		toppingPanel.add(addPeppers);
-		toppingPanel.add(addPepperoni);
-		leftPanel.add(toppingPanel);
-		leftPanel.add(new JLabel("Comment:"));
-		leftPanel.add(comment);
-		leftPanel.add(submitOrder);
-		/* Bounce fix
-		JPanel panel = new JPanel();
-		panel.add(new JLabel("Order Summary:"));
-		rightPanel.add(panel);
-		*/
-		rightPanel.add(new JLabel("Order Summary:"));
-		rightPanel.add(orderSummary);
-		add(leftPanel);
-		add(rightPanel);
-		
-	}
+
 	public static void main(String [] args) {
 		
 		JFrame frame = new PizzaApp("Pizza Order Form");
